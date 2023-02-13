@@ -1,3 +1,4 @@
-const add = (x: number, y: number) => x + y;
-let z = add(1, 1);
-console.log(z);
+import ReactDOM from "react-dom";
+import App from "./App";
+
+ReactDOM.render(<App />, document.getElementById("root"));

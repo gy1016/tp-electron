@@ -21,6 +21,12 @@ const configuration: webpack.Configuration = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "../src"),
+    },
+    extensions: [".tsx", ".ts", ".js"],
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "styles/[contenthash].css",
