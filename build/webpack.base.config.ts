@@ -19,6 +19,31 @@ const configuration: webpack.Configuration = {
         },
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "less-loader",
+        ],
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        type: "asset",
+        generator: {
+          filename: "images/[name][contenthash:8][ext]",
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 50 * 1024,
+          },
+        },
+      },
     ],
   },
   resolve: {
