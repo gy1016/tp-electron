@@ -1,6 +1,6 @@
 import webpack from "webpack";
 import { merge } from "webpack-merge";
-import baseConfig from "./webpack.base.config";
+import baseConfig from "./webpack.config.base";
 
 const configuration: webpack.Configuration = {
   mode: "production",
