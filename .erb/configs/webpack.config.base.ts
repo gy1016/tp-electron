@@ -6,7 +6,10 @@ const configuration: webpack.Configuration = {
   stats: "errors-only",
   output: {
     path: webpackPaths.srcPath,
-    clean: true,
+    // https://github.com/webpack/webpack/issues/1114
+    library: {
+      type: "commonjs2",
+    },
   },
   module: {
     rules: [

@@ -1,0 +1,10 @@
+{
+  "name": "tp-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/main/main.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {},
+  "dependencies": {}
+}
