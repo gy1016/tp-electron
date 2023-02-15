@@ -1,13 +1,24 @@
 import path from "path";
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, ipcMain, nativeTheme } from "electron";
 import { resolveHtmlPath } from "./util";
 
 let mainWindow: BrowserWindow | null = null;
 
+// 测试IPC频道
 ipcMain.on("ipc-example", async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
   console.log(arg, msgTemplate(arg));
   event.reply("ipc-example", msgTemplate("pong"));
+});
+
+// 切换黑暗模式的通道
+ipcMain.on("dark-mode:toggle", async (event) => {
+  if (nativeTheme.shouldUseDarkColors) {
+    nativeTheme.themeSource = "light";
+  } else {
+    nativeTheme.themeSource = "dark";
+  }
+  event.reply("dark-mode:toggle", nativeTheme.shouldUseDarkColors);
 });
 
 const createWindow = async () => {
