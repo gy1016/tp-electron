@@ -1,5 +1,5 @@
 import path from "path";
-import { app, BrowserWindow, ipcMain, nativeTheme } from "electron";
+import { app, BrowserWindow, ipcMain, nativeTheme, Menu } from "electron";
 import { resolveHtmlPath } from "./util";
 
 let mainWindow: BrowserWindow | null = null;
@@ -45,6 +45,9 @@ const createWindow = async () => {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+
+  // 关闭菜单栏
+  Menu.setApplicationMenu(null);
 
   mainWindow.on("closed", () => {
     mainWindow = null;
