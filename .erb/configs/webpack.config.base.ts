@@ -31,7 +31,7 @@ const configuration: webpack.Configuration = {
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "../src"),
+      "@": path.resolve(__dirname, "../src/renderer"),
     },
     extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
   },
