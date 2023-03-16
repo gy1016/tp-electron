@@ -41,9 +41,9 @@ const Login = () => {
           />
         </Form.Item>
         <Form.Item>
-          <div className="form">
+          <div className="login-form-checkbox">
             <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox style={{ borderRadius: 0 }}>Remember me</Checkbox>
+              <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
             <a href="">Forgot your password?</a>
