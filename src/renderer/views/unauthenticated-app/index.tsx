@@ -1,4 +1,4 @@
-import { Space, Image, Tabs } from "antd";
+import { Space, Image, Tabs, TabsProps } from "antd";
 import Logo from "@/renderer/assets/bg-logo.png";
 import Task from "@/renderer/assets/tp-title.png";
 import Login from "./components/Login";
@@ -6,7 +6,18 @@ import Register from "./components/Register";
 import "./index.less";
 
 const UnauthenticatedApp = () => {
-  const { TabPane } = Tabs;
+  const items: TabsProps["items"] = [
+    {
+      key: "1",
+      label: "Login",
+      children: <Login />,
+    },
+    {
+      key: "2",
+      label: "Register",
+      children: <Register />,
+    },
+  ];
 
   const handleSwitch = () => {
     console.log("ck");
@@ -23,14 +34,12 @@ const UnauthenticatedApp = () => {
           </Space>
         </div>
         <div className="tabs-form">
-          <Tabs defaultActiveKey="1" onChange={handleSwitch} animated>
-            <TabPane tab="Login" key="1">
-              <Login />
-            </TabPane>
-            <TabPane tab="Sign Up" key="2">
-              <Register />
-            </TabPane>
-          </Tabs>
+          <Tabs
+            defaultActiveKey="1"
+            items={items}
+            onChange={handleSwitch}
+            animated
+          ></Tabs>
         </div>
       </section>
     </div>
