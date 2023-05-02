@@ -1,9 +1,9 @@
 import { Space, Image, Tabs } from "antd";
 import Logo from "@/renderer/assets/bg-logo.png";
 import Task from "@/renderer/assets/tp-title.png";
-import "./index.less";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import "./index.less";
 
 const UnauthenticatedApp = () => {
   const { TabPane } = Tabs;

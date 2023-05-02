@@ -1,9 +1,11 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { IForm } from "@/renderer/types/user";
+import { login } from "@/renderer/api/user";
 
 const Login = () => {
-  const handleSubmit = (value: unknown) => {
-    console.log(value);
+  const handleSubmit = (values: IForm) => {
+    login(values);
   };
 
   return (
