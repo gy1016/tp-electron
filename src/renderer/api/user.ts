@@ -1,7 +1,7 @@
 import request, { IResponseData } from "@/renderer/utils/server";
-import { IUser } from "@/renderer/types/user";
+import { IForm, IUser } from "@/renderer/types/user";
 
-export function login(data: unknown): Promise<IResponseData<IUser>> {
+export function login(data: IForm): Promise<IResponseData<IUser>> {
   return request({
     url: "/user/login",
     method: "post",

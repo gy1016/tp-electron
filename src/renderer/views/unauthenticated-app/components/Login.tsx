@@ -31,7 +31,10 @@ const Login = () => {
             style={{ borderRadius: 0 }}
           />
         </Form.Item>
-        <Form.Item>
+        <Form.Item
+          name="password"
+          rules={[{ required: true, message: "Please input your password!" }]}
+        >
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
