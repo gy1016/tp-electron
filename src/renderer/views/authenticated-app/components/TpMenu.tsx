@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Menu, Layout } from "antd";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Menu, Layout, MenuProps } from "antd";
 import { TpRouterProps } from "@/renderer/types/global";
 import logo from "@/renderer/assets/logo.svg";
 
@@ -11,8 +11,12 @@ interface TpMenuProps {
 }
 
 const TpMenu: FC<TpMenuProps> = (props) => {
+  const navigate = useNavigate();
   const { Sider } = Layout;
   const { collapsed, siteTitle, routerArr } = props;
+  const onClick: MenuProps["onClick"] = (e) => {
+    navigate(e.key);
+  };
 
   return (
     <Sider
@@ -33,14 +37,20 @@ const TpMenu: FC<TpMenuProps> = (props) => {
         </svg>
         <span>{!collapsed ? siteTitle : ""}</span>
       </div>
-      <Menu theme="light" mode="inline" defaultSelectedKeys={["1"]}>
-        {routerArr.map((router) => {
+      <Menu
+        onClick={onClick}
+        theme="light"
+        mode="inline"
+        defaultSelectedKeys={["task"]}
+        items={routerArr}
+      >
+        {/* {routerArr.map((router) => {
           return (
             <Menu.Item key={router.id} icon={router.icon}>
               <Link to={router.path}>{router.label}</Link>
             </Menu.Item>
           );
-        })}
+        })} */}
       </Menu>
     </Sider>
   );

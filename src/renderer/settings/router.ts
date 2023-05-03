@@ -9,27 +9,23 @@ import {
 
 const TpRouterArr: Array<TpRouterProps> = [
   {
-    id: 1,
+    key: "task",
     label: "面板",
-    path: "task",
     icon: createElement(SnippetsOutlined),
   },
   {
-    id: 2,
+    key: "analysis",
     label: "分析",
-    path: "analysis",
     icon: createElement(LineChartOutlined),
   },
   {
-    id: 3,
+    key: "today",
     label: "今日",
-    path: "today",
     icon: createElement(EditOutlined),
   },
   {
-    id: 4,
+    key: "source",
     label: "上传",
-    path: "source",
     icon: createElement(FolderOpenOutlined),
   },
 ];

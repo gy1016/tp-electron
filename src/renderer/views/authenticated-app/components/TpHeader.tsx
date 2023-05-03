@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Layout, Menu, Dropdown } from "antd";
+import { Layout, Dropdown, MenuProps, Button } from "antd";
 import useAuth from "@/renderer/hooks/useAuth";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 
@@ -17,9 +17,10 @@ const TpHeader: FC<TpHeaderProps> = (props) => {
     logout();
   };
 
-  const menu = (
-    <Menu>
-      <Menu.Item key="profile">
+  const items: MenuProps["items"] = [
+    {
+      key: "profile",
+      label: (
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -27,12 +28,17 @@ const TpHeader: FC<TpHeaderProps> = (props) => {
         >
           个人信息
         </a>
-      </Menu.Item>
-      <Menu.Item key="logout" danger onClick={handleLogout}>
-        退出登录
-      </Menu.Item>
-    </Menu>
-  );
+      ),
+    },
+    {
+      key: "logout",
+      label: (
+        <Button type="link" danger onClick={handleLogout}>
+          退出登录
+        </Button>
+      ),
+    },
+  ];
 
   return (
     <Header
@@ -48,7 +54,7 @@ const TpHeader: FC<TpHeaderProps> = (props) => {
         className: "trigger",
         onClick: toggle,
       })}
-      <Dropdown overlay={menu}>
+      <Dropdown menu={{ items }}>
         <div className="tp-avatar">
           <img src={user?.avatar} alt={user?.username} />
         </div>
