@@ -1,0 +1,66 @@
+.auth-app {
+  .auth-app-sider {
+    width: 100px;
+    height: calc(100vh);
+
+    .logo {
+      display: flex;
+      width: 100%;
+      height: 40px;
+      padding: 2px;
+      gap: 5%;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid #f0f0f0;
+
+      span {
+        display: block;
+        font-size: 15px;
+        line-height: 44px;
+      }
+
+      .logo-svg {
+        height: 22px;
+      }
+    }
+  }
+
+  .auth-app-layout {
+    .app-layout-header {
+      display: flex;
+      height: 40px;
+      align-items: center;
+
+      .trigger {
+        margin-left: 15px;
+        font-size: 15px;
+        color: skyblue;
+      }
+
+      .tp-avatar {
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        display: flex;
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        justify-content: center;
+        align-items: center;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .app-layout-content {
+      height: calc(100vh - 40px);
+      padding: 12px;
+    }
+  }
+}
