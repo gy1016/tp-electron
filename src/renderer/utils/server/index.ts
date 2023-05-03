@@ -24,7 +24,7 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use((response) => {
   const res = response.data;
 
-  return res.data;
+  return res;
 });
 
 export default instance;
