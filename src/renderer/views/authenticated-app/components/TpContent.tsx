@@ -3,7 +3,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "antd";
 import Loading from "@/renderer/components/loading";
 import { TpViewProps } from "@/renderer/types/global";
-import TpHeader from "./TpHeader";
 
 interface TpContentProps {
   collapsed: boolean;
@@ -12,13 +11,12 @@ interface TpContentProps {
 }
 
 const TpContent: FC<TpContentProps> = (props) => {
-  const { collapsed, toggle, viewArr } = props;
+  const { viewArr } = props;
   const { Content } = Layout;
   const defaultView = viewArr.find((view) => view.default)?.path;
 
   return (
     <Layout className="auth-app-layout">
-      <TpHeader collapsed={collapsed} toggle={toggle} />
       <Content className="app-layout-content">
         <Suspense fallback={<Loading />}>
           <Routes>

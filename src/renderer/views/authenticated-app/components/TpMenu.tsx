@@ -2,6 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, Layout, MenuProps } from "antd";
 import { TpRouterProps } from "@/renderer/types/global";
+import { LogoutOutlined } from "@ant-design/icons";
 import logo from "@/renderer/assets/logo.svg";
 
 interface TpMenuProps {
@@ -43,15 +44,10 @@ const TpMenu: FC<TpMenuProps> = (props) => {
         mode="inline"
         defaultSelectedKeys={["task"]}
         items={routerArr}
-      >
-        {/* {routerArr.map((router) => {
-          return (
-            <Menu.Item key={router.id} icon={router.icon}>
-              <Link to={router.path}>{router.label}</Link>
-            </Menu.Item>
-          );
-        })} */}
-      </Menu>
+      ></Menu>
+      <div className="other-menu">
+        <LogoutOutlined className="other-menu-logout" />
+      </div>
     </Sider>
   );
 };
