@@ -1,0 +1,39 @@
+.tp-pond {
+  display: flex;
+  width: calc((100% - 45px) / 4);
+  height: calc((100vh - 39px) * 10 / 17);
+  padding: 0.7rem 0.7rem 1rem;
+  background-color: rgb(255 255 255);
+  border-radius: 6px;
+  flex-direction: column;
+
+  .tp-pond-header {
+    display: flex;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #262626;
+    justify-content: space-between;
+
+    .pond-header-emoji {
+      font-size: 2rem;
+      font-weight: normal;
+    }
+
+    .pond-name {
+      font-weight: 700;
+    }
+  }
+
+  .tp-pond-container {
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &:nth-last-of-type(-n + 3) {
+    width: calc((100% - 30px) / 3);
+    height: calc((100vh - 79px) * 7 / 17);
+  }
+}
