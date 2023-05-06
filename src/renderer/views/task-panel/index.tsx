@@ -1,3 +1,4 @@
+import { DragDropContext } from "react-beautiful-dnd";
 import useAuth from "@/renderer/hooks/useAuth";
 import { usePonds, useTasks } from "@/renderer/hooks/useTaskPonds";
 import Pond from "./components/pond";
@@ -12,17 +13,23 @@ const TaskPanel = () => {
     console.log("SPZ");
   };
 
+  const onDragEnd = () => {
+    console.log("SPZ");
+  };
+
   return (
-    <div className="task-panel">
-      {ponds?.map((p) => (
-        <Pond
-          key={p.id}
-          pondInfo={p}
-          taskList={tasks?.filter((t) => t.belong === p.id)}
-          toggleEditModal={toggleEditModal}
-        />
-      ))}
-    </div>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="task-panel">
+        {ponds?.map((p) => (
+          <Pond
+            key={p.id}
+            pondInfo={p}
+            taskList={tasks?.filter((t) => t.belong === p.id)}
+            toggleEditModal={toggleEditModal}
+          />
+        ))}
+      </div>
+    </DragDropContext>
   );
 };
 

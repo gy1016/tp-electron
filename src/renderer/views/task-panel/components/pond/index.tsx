@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Tooltip } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
+import { Draggable, Droppable } from "react-beautiful-dnd";
 import { IPondResult, ITaskResult } from "@/renderer/types/task";
 import { EMO_JI_MAP } from "@/renderer/settings/site";
 import TaskCard from "../task-card";
@@ -27,13 +28,34 @@ const Pond: FC<IPondProps> = ({ pondInfo, taskList, toggleEditModal }) => {
         </span>
         <div className="pond-header-count">{`共计:${taskList?.length}条`}</div>
       </div>
-      <div className="tp-pond-container">
-        {taskList?.map((t) => (
-          <div key={t.id}>
-            <TaskCard toggleEditModal={toggleEditModal} key={t.id} task={t} />
+      <Droppable droppableId={String(id)}>
+        {(provided) => (
+          <div
+            className="tp-pond-container"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {taskList?.map((t, idx) => (
+              <Draggable key={t.id} index={idx} draggableId={"drag" + t.id}>
+                {(provided) => (
+                  <div
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                  >
+                    <TaskCard
+                      toggleEditModal={toggleEditModal}
+                      key={t.id}
+                      task={t}
+                    />
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {provided?.placeholder}
           </div>
-        ))}
-      </div>
+        )}
+      </Droppable>
     </div>
   );
 };
